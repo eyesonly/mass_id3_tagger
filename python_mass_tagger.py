@@ -8,7 +8,7 @@ If necessary add numeric prefix to the names of the files so they sort correctly
 DON'T RUN THIS IN THE SAME DIRECTORY, AND KEEP THE TAGLIST FILE IN ANOTHER DIRECTORY ALSO
 
 Requitements: 
-Debian/Ubuntu id3 package
+Debian/Ubuntu id3v2 package
 
 Argument 1: Directory
 Argument 2: Filename that contains titles ("taglist")
@@ -22,7 +22,7 @@ taglist =  [line.rstrip('\n') for line in open(sys.argv[2])]
 index = 0
 
 for fichier in sorted(os.listdir(sys.argv[1])):
-    command_string  = 'id3 -T ' + str(index+1) + ' -t "' + str(taglist[index:index+1][0]) +  '" ' + '"' + str(sys.argv[1]) + fichier + '"'
+    command_string  = 'id3v2 -T ' + str(index+1) + ' -t "' + str(taglist[index:index+1][0]) +  '" ' + '"' + str(sys.argv[1]) + fichier + '"'
     if len(sys.argv) > 3:
         print("executing " + str(command_string) + ":")
         os.system(command_string)
